@@ -22,7 +22,7 @@ async function fillAdminStep(
   password: string,
 ): Promise<void> {
   await expect(
-    page.getByRole("heading", { name: "欢迎使用 SilverBullet" }),
+    page.getByRole("heading", { name: "欢迎使用 SilverBullet！" }),
   ).toBeVisible();
   await page.locator("#setup-username").fill(username);
   await page.locator("#setup-password").fill(password);
