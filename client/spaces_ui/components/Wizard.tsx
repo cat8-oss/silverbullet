@@ -101,13 +101,13 @@ export function Wizard() {
       setStep("done");
     } catch (errs) {
       setErrors(
-        Array.isArray(errs) ? errs : [{ field: "", message: "Request failed" }],
+        Array.isArray(errs) ? errs : [{ field: "", message: "请求失败" }],
       );
       setBusy(false);
     }
   }
 
-  if (!loaded) return <p>Loading…</p>;
+  if (!loaded) return <p>加载中…</p>;
 
   switch (step) {
     case "admin":

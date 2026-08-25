@@ -58,15 +58,14 @@ export function DoneStep({ target }: { target: string }) {
 
   return (
     <Fragment>
-      <h1>Setup complete</h1>
+      <h1>设置完成</h1>
       {pollExhausted ? (
         <p>
-          The server is taking longer than expected — it may have failed to
-          start. Check the server logs, then reload this page.{" "}
+          服务器启动时间超出预期，可能启动失败。请检查服务器日志后重新加载此页面。{" "}
           <a href={target}>{target}</a>
         </p>
       ) : (
-        <p>Setup complete — taking you to your space…</p>
+        <p>设置完成，正在进入您的空间…</p>
       )}
     </Fragment>
   );

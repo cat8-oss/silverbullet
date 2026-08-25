@@ -47,16 +47,16 @@ export function SpaceStep({
         onSubmit();
       }}
     >
-      <h1>Create your first space</h1>
-      <p class="sb-help-text">Step 2 of 2</p>
+      <h1>创建您的第一个空间</h1>
+      <p class="sb-help-text">第 2 步，共 2 步</p>
       <FieldErrors errors={errors} />
-      <label for="setup-space-name">Name</label>
+      <label for="setup-space-name">名称</label>
       <Input
         id="setup-space-name"
         value={values.name}
         onInput={(e) => onNameInput(e.currentTarget.value)}
       />
-      <label>Hosting</label>
+      <label>托管方式</label>
       <label>
         <input
           type="radio"
@@ -64,10 +64,9 @@ export function SpaceStep({
           checked={values.hosting === "root"}
           onChange={() => onHostingChange("root")}
         />{" "}
-        Host at the root of this server (/)
+        托管在此服务器的根路径 (/)
         <span class="sb-help-text">
-          Only recommended if you intend to create only a <em>single space</em>{" "}
-          or using individual (sub)domains for additional spaces.
+          仅建议在您只创建<em>一个空间</em>，或为其他空间使用独立（子）域名时选择此项。
         </span>
       </label>
       <label>
@@ -77,11 +76,11 @@ export function SpaceStep({
           checked={values.hosting === "prefix"}
           onChange={() => onHostingChange("prefix")}
         />{" "}
-        Host under a URL prefix
+        托管在 URL 前缀下
       </label>
       {values.hosting === "prefix" && (
         <Fragment>
-          <label for="setup-prefix">Prefix</label>
+          <label for="setup-prefix">前缀</label>
           <UrlPrefixInput
             id="setup-prefix"
             origin={location.origin}
@@ -90,7 +89,7 @@ export function SpaceStep({
           />
         </Fragment>
       )}
-      <label for="setup-folder">Folder</label>
+      <label for="setup-folder">文件夹</label>
       <FolderPicker
         id="setup-folder"
         value={values.folder}
@@ -100,9 +99,9 @@ export function SpaceStep({
         browseStart={parentDir(values.folder) || "/"}
       />
       <div class="row">
-        <Button onClick={onBack}>Back</Button>
+        <Button onClick={onBack}>返回</Button>
         <Button type="submit" variant="primary" disabled={busy}>
-          Finish setup
+          完成设置
         </Button>
       </div>
     </form>

@@ -61,25 +61,25 @@ test("validateAdmin accepts a complete, matching account", () => {
 
 test("validateAdmin rejects a blank username", () => {
   expect(validateAdmin({ ...ADMIN, username: "   " })).toEqual([
-    { field: "adminUsername", message: "username is required" },
+    { field: "adminUsername", message: "请输入用户名" },
   ]);
 });
 
 test("validateAdmin rejects an empty password", () => {
   expect(validateAdmin({ ...ADMIN, password: "", password2: "" })).toEqual([
-    { field: "adminPassword", message: "password is required" },
+    { field: "adminPassword", message: "请输入密码" },
   ]);
 });
 
 test("validateAdmin rejects a mismatched repeat", () => {
   expect(validateAdmin({ ...ADMIN, password2: "hunter3" })).toEqual([
-    { field: "adminPassword", message: "passwords do not match" },
+    { field: "adminPassword", message: "两次输入的密码不一致" },
   ]);
 });
 
 test("validateAdmin reports one problem at a time, in field order", () => {
   expect(validateAdmin({ username: "", password: "", password2: "x" })).toEqual(
-    [{ field: "adminUsername", message: "username is required" }],
+    [{ field: "adminUsername", message: "请输入用户名" }],
   );
 });
 
@@ -89,7 +89,7 @@ test("validateSpace accepts a complete prefix-bound space", () => {
 
 test("validateSpace rejects a blank name", () => {
   expect(validateSpace({ ...SPACE, name: "  " })).toEqual([
-    { field: "space.name", message: "name is required" },
+    { field: "space.name", message: "请输入名称" },
   ]);
 });
 
@@ -97,7 +97,7 @@ test("validateSpace rejects a blank prefix when bound to a prefix", () => {
   // A prefix-bound space with an empty prefix would bind to the bare root and
   // capture every URL on the server.
   expect(validateSpace({ ...SPACE, prefix: "  " })).toEqual([
-    { field: "space.prefix", message: "prefix is required" },
+    { field: "space.prefix", message: "请输入前缀" },
   ]);
 });
 
@@ -107,7 +107,7 @@ test("validateSpace ignores a blank prefix when hosting at the root", () => {
 
 test("validateSpace rejects a blank folder", () => {
   expect(validateSpace({ ...SPACE, folder: "" })).toEqual([
-    { field: "space.folder", message: "folder is required" },
+    { field: "space.folder", message: "请输入文件夹路径" },
   ]);
 });
 

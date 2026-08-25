@@ -22,12 +22,12 @@ async function fillAdminStep(
   password: string,
 ): Promise<void> {
   await expect(
-    page.getByRole("heading", { name: "Welcome to SilverBullet" }),
+    page.getByRole("heading", { name: "欢迎使用 SilverBullet" }),
   ).toBeVisible();
   await page.locator("#setup-username").fill(username);
   await page.locator("#setup-password").fill(password);
   await page.locator("#setup-password2").fill(password);
-  await page.getByRole("button", { name: "Continue" }).click();
+  await page.getByRole("button", { name: "继续" }).click();
 }
 
 /**
@@ -101,17 +101,17 @@ test("wizard provisions a root space, then the server serves it", async ({
   // hosting defaults to a URL prefix — so this "root space" scenario selects
   // the root radio explicitly.
   await expect(
-    page.getByRole("heading", { name: "Create your first space" }),
+    page.getByRole("heading", { name: "创建您的第一个空间" }),
   ).toBeVisible();
   await expect(page.locator("#setup-space-name")).toHaveValue("Notes");
   await page
-    .getByRole("radio", { name: /Host at the root of this server/ })
+    .getByRole("radio", { name: /托管在此服务器的根路径/ })
     .check();
   // The folder is now prepopulated with an absolute path under the server's
   // data root ending in the slug-derived spaces/<slug> (not a random
   // spaces/<uuid>).
   await expect(page.locator("#setup-folder")).toHaveValue(/\/spaces\/notes$/);
-  await page.getByRole("button", { name: "Finish setup" }).click();
+  await page.getByRole("button", { name: "完成设置" }).click();
 
   // The wizard's done step shows "Setup complete" and then auto-navigates as
   // soon as the server hot-swaps into multi mode — too fast to assert on the
@@ -159,11 +159,11 @@ test("wizard with a URL prefix; setup surface is gone afterwards", async ({
 
   // Space step: host under a URL prefix (defaults to /notes).
   await expect(
-    page.getByRole("heading", { name: "Create your first space" }),
+    page.getByRole("heading", { name: "创建您的第一个空间" }),
   ).toBeVisible();
-  await page.getByRole("radio", { name: "Host under a URL prefix" }).check();
+  await page.getByRole("radio", { name: "托管在 URL 前缀下" }).check();
   await expect(page.locator("#setup-prefix")).toHaveValue("/notes");
-  await page.getByRole("button", { name: "Finish setup" }).click();
+  await page.getByRole("button", { name: "完成设置" }).click();
 
   // Wait on the server-side hot-swap rather than the transient "Setup
   // complete" heading (the wizard auto-navigates away the moment it swaps).
@@ -213,7 +213,7 @@ test("wizard's folder picker is driven by the fs/dirs endpoint", async ({
 
   await fillAdminStep(page, ADMIN_USER, ADMIN_PASSWORD);
   await expect(
-    page.getByRole("heading", { name: "Create your first space" }),
+    page.getByRole("heading", { name: "创建您的第一个空间" }),
   ).toBeVisible();
 
   // The folder picker is now always visible (no checkbox to reveal it).

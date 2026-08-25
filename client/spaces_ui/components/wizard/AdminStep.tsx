@@ -28,29 +28,26 @@ export function AdminStep({
         onSubmit();
       }}
     >
-      <h1>Welcome to SilverBullet!</h1>
-      <p class="sb-help-text">Step 1 of 2</p>
+      <h1>欢迎使用 SilverBullet！</h1>
+      <p class="sb-help-text">第 1 步，共 2 步</p>
       <p>
-        This server has not been configured yet. Yet, not to worry, it only
-        takes two quick steps: first create an administrator account, then
-        configure your first space. You can add more spaces and users later (if
-        you were so to desire) in the spaces UI.
+        此服务器尚未配置。只需两步即可完成：先创建管理员账户，然后配置您的第一个空间。之后可在空间管理界面中添加更多空间和用户。
       </p>
       <FieldErrors errors={errors} />
-      <label for="setup-username">Username</label>
+      <label for="setup-username">用户名</label>
       <Input
         id="setup-username"
         value={values.username}
         onInput={(e) => onChange({ username: e.currentTarget.value })}
       />
-      <label for="setup-password">Password</label>
+      <label for="setup-password">密码</label>
       <Input
         id="setup-password"
         type="password"
         value={values.password}
         onInput={(e) => onChange({ password: e.currentTarget.value })}
       />
-      <label for="setup-password2">Repeat password</label>
+      <label for="setup-password2">重复密码</label>
       <Input
         id="setup-password2"
         type="password"
@@ -59,7 +56,7 @@ export function AdminStep({
       />
       <div class="row">
         <Button type="submit" variant="primary" disabled={busy}>
-          Continue
+          继续
         </Button>
       </div>
     </form>

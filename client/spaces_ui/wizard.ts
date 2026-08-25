@@ -55,13 +55,13 @@ export function validateAdmin({
   password2,
 }: AdminValues): FieldError[] {
   if (!username.trim()) {
-    return [{ field: "adminUsername", message: "username is required" }];
+    return [{ field: "adminUsername", message: "请输入用户名" }];
   }
   if (!password) {
-    return [{ field: "adminPassword", message: "password is required" }];
+    return [{ field: "adminPassword", message: "请输入密码" }];
   }
   if (password !== password2) {
-    return [{ field: "adminPassword", message: "passwords do not match" }];
+    return [{ field: "adminPassword", message: "两次输入的密码不一致" }];
   }
   return [];
 }
@@ -77,13 +77,13 @@ export function validateSpace({
   folder,
 }: SpaceValues): FieldError[] {
   if (!name.trim()) {
-    return [{ field: "space.name", message: "name is required" }];
+    return [{ field: "space.name", message: "请输入名称" }];
   }
   if (hosting === "prefix" && !prefix.trim()) {
-    return [{ field: "space.prefix", message: "prefix is required" }];
+    return [{ field: "space.prefix", message: "请输入前缀" }];
   }
   if (!folder.trim()) {
-    return [{ field: "space.folder", message: "folder is required" }];
+    return [{ field: "space.folder", message: "请输入文件夹路径" }];
   }
   return [];
 }
