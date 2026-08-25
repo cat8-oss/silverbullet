@@ -47,7 +47,7 @@ export function AdminStep({
         value={values.password}
         onInput={(e) => onChange({ password: e.currentTarget.value })}
       />
-      <label for="setup-password2">重复密码</label>
+      <label for="setup-password2">确认密码</label>
       <Input
         id="setup-password2"
         type="password"
